@@ -21,10 +21,10 @@ meal_price varchar(20) not null,
 menu_of_branch_id int REFERENCES branchs(branch_id)
 );
 
-ALTER TABLE branchMenus RENAME COLUMN menu TO menu_of_branch_id;
+ALTER TABLE branchMenus RENAME COLUMN course_id TO menu_id;
 ALTER TABLE branchMenus ADD COLUMN meal_price varchar(20);
-SELECT * FROM restaurants JOIN branchs ON restaurant_id = branch_of;
-SELECT * FROM restaurants JOIN branchs ON restaurant_id = branch_of;
+SELECT * FROM restaurants LEFT JOIN branchs ON restaurant_id = branch_of;
+SELECT * FROM branchs JOIN branchMenus ON branch_id = menu_of_branch_id;
 
 INSERT INTO restaurants( restaurant_name) VALUES ('Rayhon');
 INSERT INTO restaurants( restaurant_name) VALUES ('Soy');
